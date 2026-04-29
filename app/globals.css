@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
+/* Design tokens (from DESIGN.md - Meta inspired) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --meta-blue: #0064E0;
+  --meta-blue-hover: #0143B5;
+  --meta-blue-pressed: #004BB9;
+  --dolly-bg: #F1F4F7;
+  --dolly-text-primary: #1C2B33;
+  --dolly-white: #FFFFFF;
+  --dolly-near-black: #1C1E21;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --dolly-white: #000000;
+    --dolly-near-black: #FFFFFF;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--dolly-white);
+  color: var(--dolly-text-primary);
+  font-family: var(--font-geist-sans), Inter, ui-sans-serif, system-ui, -apple-system;
+}
+
+/* Basic utility helpers for the design system */
+.rounded-pill {
+  border-radius: 100px;
+}
+
+.rounded-card {
+  border-radius: 20px;
+}
+
+.btn-pill {
+  background: var(--meta-blue);
+  color: #fff;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+.btn-pill:hover {
+  background: var(--meta-blue-hover);
+  transform: scale(1.03);
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
 }
