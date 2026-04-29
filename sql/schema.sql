@@ -24,8 +24,8 @@ create table if not exists products (
 
 -- Example products
 insert into products (name, description, price, image_url) values
-('Tremora Headset', 'Next-gen immersive headset', 499.99, '/hero.jpg'),
-('Tremora Glasses', 'Smart eyewear with style', 199.99, '/glasses.jpg');
+('Tremora Headset', 'Next-gen immersive headset', 499.99, '/placeholder.svg'),
+('Tremora Glasses', 'Smart eyewear with style', 199.99, '/placeholder.svg');
 
 -- 3) (Optional) Users table for demo profile data
 create table if not exists app_users (

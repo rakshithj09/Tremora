@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { createClient } from '../../utils/supabase/server'
 import { cookies } from 'next/headers'
+import Container from '../../components/Container'
+import Card from '../../components/Card'
 
 type Product = {
   id: number
@@ -17,19 +19,21 @@ export default async function ProductsPage() {
   const list: Product[] = (products as unknown as Product[]) || []
 
   return (
-    <div className="max-w-6xl mx-auto py-12">
-      <h1 className="text-3xl font-semibold mb-6">Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {list.map((p) => (
-          <div key={p.id} className="card">
-            <div className="w-full h-56 relative rounded-card mb-4 overflow-hidden">
-              <Image src={p.image_url || '/placeholder.jpg'} alt={p.name} fill className="object-cover" />
-            </div>
-            <h3 className="text-xl font-medium">{p.name}</h3>
-            <p className="text-gray-600">{p.description}</p>
-          </div>
-        ))}
+    <Container>
+      <div className="py-12">
+        <h1 className="text-3xl font-semibold mb-6">Products</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {list.map((p) => (
+            <Card key={p.id}>
+              <div className="w-full h-56 relative rounded-card mb-4 overflow-hidden">
+                <Image src={p.image_url || '/placeholder.svg'} alt={p.name} fill className="object-cover" unoptimized />
+              </div>
+              <h3 className="text-xl font-medium">{p.name}</h3>
+              <p className="text-gray-600">{p.description}</p>
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
+    </Container>
   )
 }

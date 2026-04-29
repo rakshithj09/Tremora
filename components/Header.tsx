@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Button from './Button'
 import { useRouter } from 'next/navigation'
 import { createClient as createBrowserClient } from '../utils/supabase/client'
 
@@ -40,9 +41,9 @@ export default function Header() {
           <Link href="#" className="text-sm text-gray-700">Collections</Link>
           <Link href="#" className="text-sm text-gray-700">Support</Link>
           {user ? (
-            <button onClick={signOut} className="btn-pill">Sign out</button>
+            <Button onClick={signOut} variant="primary">Sign out</Button>
           ) : (
-            <Link href="/signin" className="btn-pill">Sign in</Link>
+            <Button href="/signin" variant="primary">Sign in</Button>
           )}
         </nav>
       </div>
