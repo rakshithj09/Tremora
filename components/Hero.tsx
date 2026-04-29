@@ -14,7 +14,7 @@ export default function Hero() {
         </div>
         <div className="flex-1">
           <div className="rounded-card overflow-hidden shadow-lg">
-            <Image src="/hero.jpg" alt="Product hero" width={1200} height={800} className="w-full h-auto object-cover" />
+            <Image src={'/hero.jpg'} alt="Product hero" width={1200} height={800} className="w-full h-auto object-cover" priority />
           </div>
         </div>
       </div>

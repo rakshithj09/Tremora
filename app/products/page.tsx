@@ -22,11 +22,9 @@ export default async function ProductsPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {list.map((p) => (
           <div key={p.id} className="card">
-            {p.image_url ? (
-              <div className="w-full h-56 relative rounded-card mb-4 overflow-hidden">
-                <Image src={p.image_url} alt={p.name} fill className="object-cover" />
-              </div>
-            ) : null}
+            <div className="w-full h-56 relative rounded-card mb-4 overflow-hidden">
+              <Image src={p.image_url || '/placeholder.jpg'} alt={p.name} fill className="object-cover" />
+            </div>
             <h3 className="text-xl font-medium">{p.name}</h3>
             <p className="text-gray-600">{p.description}</p>
           </div>
