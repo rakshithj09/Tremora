@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Button from './Button'
@@ -31,15 +32,24 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-40">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
-        <Link href="/" className="text-xl font-semibold text-dolly-text">
-          Tremora
+    <header className="sticky top-0 z-40 w-full border-b border-[var(--border-subtle)] bg-[rgba(15,17,19,0.82)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/tremora-logo-transparent.png"
+            alt="Tremora"
+            width={320}
+            height={89}
+            priority
+            className="h-10 w-auto object-contain md:h-12"
+          />
         </Link>
-        <nav className="flex items-center gap-4">
-          <Link href="/products" className="text-sm text-gray-700">Shop</Link>
-          <Link href="#" className="text-sm text-gray-700">Collections</Link>
-          <Link href="#" className="text-sm text-gray-700">Support</Link>
+        <nav className="flex items-center gap-2 md:gap-4">
+          <div className="hidden items-center gap-5 md:flex">
+            <Link href="/#problem" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]">Problem</Link>
+            <Link href="/#technology" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]">Technology</Link>
+            <Link href="/#market" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]">Market</Link>
+          </div>
           {user ? (
             <Button onClick={signOut} variant="primary">Sign out</Button>
           ) : (

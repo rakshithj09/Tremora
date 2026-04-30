@@ -6,11 +6,11 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export default function Button({ variant = 'primary', href, children, ...rest }: React.PropsWithChildren<ButtonProps>) {
-  const base = 'inline-flex items-center justify-center font-medium rounded-full px-6 py-2 transition'
+  const base = 'inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold transition'
   const variants: Record<'primary'|'outline'|'ghost', string> = {
-    primary: `${base} bg-[var(--meta-blue)] text-white hover:bg-[var(--meta-blue-hover)]`,
-    outline: `${base} bg-transparent border border-gray-300 text-[var(--dolly-text-primary)]`,
-    ghost: `${base} bg-transparent text-[var(--meta-blue)]`
+    primary: `${base} bg-[var(--accent)] !text-[#101113] shadow-[0_10px_24px_rgba(184,255,101,0.12)] hover:bg-[var(--accent-strong)]`,
+    outline: `${base} border border-[rgba(184,255,101,0.4)] bg-[rgba(255,255,255,0.02)] !text-[var(--text-primary)] hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]`,
+    ghost: `${base} bg-transparent text-[var(--accent)] hover:bg-[var(--accent-soft)]`
   }
 
   const { className: extraClassName, ...otherProps } = rest as React.ButtonHTMLAttributes<HTMLButtonElement>
